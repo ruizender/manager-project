@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="text-center font-weight-bold mb-3">Band's List</h1>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Members</th>
+      <th>Start date</th>
+      <th>Type</th>
+      <th>Concerts</th>
+      <th>Concert name</th>
+      <th>Audience</th>
+      <th>Options</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @groups.each do |group| %>
+    <tr>
+      <td><%= group.name %></td>
+      <td><%= group.members %></td>
+      <td><%= group.initial_date %></td>
+      <td><%= group.gender %></td>
+      <td><%= group.concerts.count %></td>
+      <td>
+        <% group.concerts.each do |concert| %> <%= link_to "#{concert.name}", concert_path(concert.id)%><br />
+        <% end %>
+      </td>
+      <td>
+        <% group.concerts.each do |concert| %> <%= "#{concert.crowd}
+        personas" %><br />
+        <% end %>
+      </td>
+      <td>
+        <%= link_to 'Show', group, class: "btn btn-success text-light btn-sm" %>
+      </td>
+      <td>
+        <%= link_to 'Edit', edit_group_path(group),class: "btn btn-primary
+        btn-sm" %>
+      </td>
+      <td>
+        <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you
+        sure?' }, class: "btn btn-danger text-light btn-sm" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+

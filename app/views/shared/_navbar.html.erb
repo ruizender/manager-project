@@ -1,0 +1,14 @@
+<nav class="navbar navbar-info bg-danger">
+  <%= link_to "EventProducer", root_path, class:"text-light font-weight-bold h4" %>
+
+  <ul class="navbar-nav ml-auto mr-4">
+      <li class="nav-item active">
+        <%= link_to "Add Group", new_group_path, class:"btn btn-light text-decoration-none btn text-dark mr-3" %>
+        <%= link_to "Add concert", new_concert_path, class:"btn btn-light text-decoration-none btn text-dark" %>
+        <%= link_to "View Groups", groups_path, class:"text-decoration-none btn text-light" %>
+        <%= link_to "View concerts", concerts_path, class:"text-decoration-none btn text-light" %>
+      </li>
+    
+    </ul>
+
+</nav>

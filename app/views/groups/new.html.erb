@@ -1,0 +1,16 @@
+<h1 class= "text-left mt-3 h2">Create your group</h1>
+
+<% if @group.errors.any? %>
+  <div id="card border-0">
+    <p>This form contains <%= pluralize(@group.errors.count, "error") %>:</p>
+    <ul>
+    <% @group.errors.full_messages.each do |msg| %>
+      <li class="text-danger"><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= render 'form', group: @group %>
+
+<%= link_to 'Back', groups_path, class:"btn btn-success text-light btn-sm" %>
